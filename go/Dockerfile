@@ -13,3 +13,5 @@ WORKDIR /app
 COPY --from=golangImage /app/main .
 
 CMD [ "/app/main", ";", "exit", ";" ]
+
+# Image url https://hub.docker.com/r/lccoornel/codeeducation
