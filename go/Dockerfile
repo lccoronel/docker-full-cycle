@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN GOOS=linux go build main.go
+RUN go build main.go
 
 FROM scratch
 
