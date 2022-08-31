@@ -26,3 +26,12 @@ services:
       - MYSQL_DATABASE=node_challenge
       - MYSQL_ROOT_PASSWORD=root
 
+  nginx:
+    build: 
+      context: ./nginx
+    image: cidstein/nginx
+    container_name: nginx
+    ports: 
+      - "8080:80"
+    depends_on:
+      - app
