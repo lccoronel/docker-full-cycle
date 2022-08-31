@@ -11,11 +11,11 @@ const config = {
 
 const connection = mysql.createConnection(config)
 
-const insertUserSQL = `INSERT INTO user(name) values('Lino')`
+const insertUserSQL = `INSERT INTO people(name) values('Little')`
 connection.query(insertUserSQL)
 
 app.get('/', (req, res) => {
-   connection.query(`SELECT * from user`, (err, results) => {
+   connection.query(`SELECT * from people`, (err, results) => {
       if (err) {
          return res.send('<h1>Opa, tivemos um erro ao listar os nomes dos usuarios</h1>')
       }
@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
          <p> - Lista de nomes cadastrados no banco de dados.</p>
 
          <ul>
-            ${results.map(user => (
-               `<li>${user.name}</li>`
+            ${results.map(item => (
+               `<li>${item.name}</li>`
             ))}
          </ul
       `)
