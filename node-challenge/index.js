@@ -9,13 +9,13 @@ const config = {
    database: 'node_challenge'
 }
 
-const database = mysql.createConnection(config)
+const connection = mysql.createConnection(config)
 
 const insertUserSQL = `INSERT INTO user(name) values('Lino')`
-database.query(insertUserSQL)
+connection.query(insertUserSQL)
 
 app.get('/', (req, res) => {
-   database.query(`SELECT * from user`, (err, results) => {
+   connection.query(`SELECT * from user`, (err, results) => {
       if (err) {
          return res.send('<h1>Opa, tivemos um erro ao listar os nomes dos usuarios</h1>')
       }
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
       `)
    })
   
-   database.end()
+   connection.end()
 })
 
 
