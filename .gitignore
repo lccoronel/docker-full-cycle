@@ -2,4 +2,4 @@ mysql/mysql
 mysql/performance_schema
 mysql/sys
 node/node_modules
-node-challenge/node_modules
+node-challenge/src/node_modules

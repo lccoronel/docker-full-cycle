@@ -2,14 +2,18 @@ version: '3'
 
 services:
   app:
-    image: node:15
+    build: 
+      context: src
     container_name: app
+    entrypoint: dockerize -wait tcp://database:3306 -timeout 20s node index.js
     volumes:
-      - ../node-challenge:/usr/src/app
+      - ./src:/usr/src/app
     ports:
       - 3000:3000
     restart: always
     tty: true
+    depends_on:
+      - database
 
   database:
     platform: linux/x86_64
