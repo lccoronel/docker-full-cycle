@@ -8,6 +8,7 @@ services:
     entrypoint: dockerize -wait tcp://database:3306 -timeout 20s node index.js
     volumes:
       - ./src:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - 3000:3000
     restart: always
